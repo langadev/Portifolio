@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CO:wght@100..400&display=swap');
+
+/* Definição de variáveis */
+:root {
+    --border-radius: 0.65rem;
+    --border-width: 1.5px;
+    --border-color: #6751b9;
+    --background-main: #000017;
+    --card-min-width: 23rem;
+    --circle-size: 28rem;
+    --circle-blur: 200px;
+    --circle-color-1: #000017;
+    --circle-color-2: #9e51b9;
+    --heading-font-size: 1.2rem;
+    --heading-padding: 0.8rem 2rem;
+    --heading-gradient: linear-gradient(108deg, #ac96ff 0%, #7c5fe6 100%);
+    --heading-border-bottom: 1.5px solid var(--border-color);
+    --content-padding: 2rem;
+    --text-font-size: 1rem;
+    --text-font-weight: 500;
+    --percentage-color: #dd8cfa;
+    --progress-bg: #382e58;
+    --progress-height: 0.5rem;
+    --progress-radius: 8.5rem;
+    --progress-margin: 1rem 0;
+    --progress-bar-gradient: linear-gradient(90deg, #aa94fe -50%, #7d68e6 50%);
+    --progress-bar-transition: all 0.5s ease-in-out;
+    --media-padding: 1rem;
+    --media-circle-size: 10rem;
+    --media-max-width: 600px;
+
+    --skills-gap: 3rem;
+}
+
+/* Estilos para o cartão de informações de habilidades */
+.skills-info-card {
+  min-width: 20rem;
+  margin: 0;
+    min-height: var(--card-min-width);
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--border-color);
+    background: var(--background-main);
+    position: relative;
+   
+}
+
+/* Estilos para os efeitos antes e depois */
+.skills-info-card::after,
+.skills-info-card::before {
+    content: " ";
+    width: var(--circle-size);
+    height: var(--circle-size);
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    filter: blur(var(--circle-blur));
+}
+
+.skills-info-card::after {
+    background: var(--circle-color-1);
+    top: -3rem;
+    left: -5rem;
+}
+
+.skills-info-card::before {
+    background: var(--circle-color-2);
+    bottom: 0;
+    right: 0;
+}
+
+/* Estilos para o título do cartão */
+.skills-info-card h6 {
+    font-size: var(--heading-font-size);
+    font-weight: var(--text-font-weight);
+    padding: var(--heading-padding);
+    background: var(--heading-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: var(--heading-border-bottom);
+}
+
+/* Estilos para o conteúdo do cartão */
+.skills-info-content {
+    padding: var(--content-padding);
+}
+
+.skills-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilos para o texto */
+.skills-info p {
+    font-size: var(--text-font-size);
+    font-weight: var(--text-font-weight);
+}
+
+.skills-info .percentage {
+    color: var(--percentage-color);
+}
+
+/* Estilos para a barra de progresso */
+.skill-progress-bg {
+    width: 100%;
+    height: var(--progress-height);
+    background: var(--progress-bg);
+    border-radius: var(--progress-radius);
+    margin: var(--progress-margin);
+    overflow: hidden;
+}
+
+.skill-progress {
+    width: 0%;
+    height: var(--progress-height);
+    background: var(--progress-bar-gradient);
+    border-radius: var(--border-radius);
+    transition: var(--progress-bar-transition);
+}
+
+
+/* Media queries */
+@media (max-width: 1025px) {
+    .skills {
+      padding-left: 1rem;
+    }
+  
+    .skills,
+    .skills-content {
+      gap: 1.5rem; /* Example using rem for gap */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .skills-content {
+      flex-direction: column-reverse;
+      gap: var(--skills-gap);
+    }
+  
+    .skills,
+    .skills-info {
+      width: 100%;
+    }
+  
+    .skills-info-card::after,
+    .skills-info-card::before {
+      width: calc(var(--media-circle-size) * 0.8); /* Example using calc for media circle size */
+      height: calc(var(--media-circle-size) * 0.8);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .skills-info-card {
+      padding: 0.5rem; /* Adjust padding for smaller screens */
+    }
+  }

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CO:wght@100..400&display=swap');
+
+/* Definição de variáveis */
+:root {
+    --border-radius: 0.65rem;
+    --border-color: #25044e;
+    --border-color1: #6751b9;
+    --padding: 2.5rem;
+    --padding-small: 2rem;
+    --text-align: center;
+    --background-color:#000017;
+    --hover-background: linear-gradient(180deg, #000017 10%, #7c5fe6 100%);
+    --font-size: 1.3rem;
+    --font-size-small: 1rem;
+    --font-size-smaller: 0.9rem;
+    --font-weight: 500;
+    --icon-size: 3.5rem;
+    --icon-size-small: 3rem;
+    --icon-background: #000017;
+    --icon-border: 1px solid #25044e;
+    --icon-position: absolute;
+    --icon-top: -1rem;
+    --icon-left: -1rem;
+    --img-width: 2rem;
+    --img-width-small: 1.8rem;
+    --transition: all 0.3s ease;
+}
+
+/* Estilos para o cartão de habilidades */
+.skills-card {
+    border-radius: var(--border-radius);
+    border: 1.5px solid var(--border-color);
+    padding: var(--padding);
+    text-align: var(--text-align);
+    background: var(--background-color);
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+    
+}
+
+.skills-card:hover,
+.skills-card.active {
+    background: var(--border-color1);
+}
+
+.skills-card span {
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+}
+
+/* Estilos para o ícone de habilidade */
+.skill-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--icon-background);
+    border-radius: var(--border-radius);
+    border: var(--icon-border);
+    position: var(--icon-position);
+    top: var(--icon-top);
+    left: var(--icon-left);
+}
+
+.skill-icon img {
+    width: var(--img-width);
+    height: auto;
+    object-fit: contain;
+}
+
+/* Estilos responsivos */
+@media (max-width: 1025px) {
+    .skills-card {
+        padding: var(--padding-small);
+    }
+    .skills-card span {
+        font-size: var(--font-size-small);
+    }
+    .skill-icon {
+        width: var(--icon-size-small);
+        height: var(--icon-size-small);
+    }
+    .skill-icon img {
+        width: var(--img-width-small);
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-card span {
+        font-size: var(--font-size-smaller);
+    }
+}
